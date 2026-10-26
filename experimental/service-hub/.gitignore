@@ -1,0 +1,6 @@
+worker/index.js
+dist/
+.env
+.env.*
+!.env.example
+LIVE-RESULTS.json

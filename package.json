@@ -1,0 +1,11 @@
+{
+  "name": "nuvio-community-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "generate": "node scripts/generate.mjs",
+    "validate": "node scripts/validate.mjs"
+  }
+}

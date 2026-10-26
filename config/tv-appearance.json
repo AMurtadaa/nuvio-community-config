@@ -1,0 +1,29 @@
+{
+  "tv": {
+    "version": 1,
+    "features": {
+      "layout_settings": {
+        "selected_layout": {
+          "type": "string",
+          "value": "MODERN"
+        },
+        "hero_section_enabled": {
+          "type": "boolean",
+          "value": true
+        },
+        "focused_poster_backdrop_expand_enabled": {
+          "type": "boolean",
+          "value": true
+        },
+        "custom_poster_url_pattern": {
+          "type": "string",
+          "value": "https://btttr.cc/poster-q/imdb/poster-default/{imdb_id}.jpg?rs=IM"
+        },
+        "custom_poster_enabled_screens": {
+          "type": "string",
+          "value": "home,continue_watching,collections,library,details,search"
+        }
+      }
+    }
+  }
+}
