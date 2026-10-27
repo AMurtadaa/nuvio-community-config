@@ -2,6 +2,8 @@
 
 Use a spare profile, keep your backup and record the client version. Account-setting verification is distinct from seeing a result on a physical TV.
 
+For the hosted cache and in-folder category layout, follow [Oracle Service Shelves setup](oracle-service-shelves-setup.md), using `scripts/generate-shelves.mjs`. The legacy generator still creates More Browsing. The hosted backend's all-category HTTP checks and preset tests do not replace the physical-device checks below.
+
 | Check | Expected behavior | If it differs |
 | --- | --- | --- |
 | Home order | General movie chart, general series chart, then Streaming Services among configured content rows | Clear collection pins; inspect Home order/sync and any local ordering option |
