@@ -146,7 +146,7 @@
     {
       "key": "collection_community-collection-12",
       "type": "",
-      "order": 20,
+      "order": 13,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -157,7 +157,7 @@
     {
       "key": "collection_community-collection-13",
       "type": "",
-      "order": 21,
+      "order": 14,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -168,7 +168,7 @@
     {
       "key": "collection_community-collection-14",
       "type": "",
-      "order": 22,
+      "order": 15,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -179,7 +179,7 @@
     {
       "key": "collection_community-collection-15",
       "type": "",
-      "order": 23,
+      "order": 16,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -190,7 +190,7 @@
     {
       "key": "collection_community-collection-16",
       "type": "",
-      "order": 24,
+      "order": 17,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -201,7 +201,7 @@
     {
       "key": "collection_community-collection-17",
       "type": "",
-      "order": 25,
+      "order": 18,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -212,7 +212,7 @@
     {
       "key": "collection_community-collection-18",
       "type": "",
-      "order": 26,
+      "order": 19,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
@@ -223,7 +223,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.amazon-prime.movie",
       "type": "movie",
-      "order": 56,
+      "order": 20,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.amazon-prime.movie",
@@ -234,7 +234,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.amazon-prime.series",
       "type": "series",
-      "order": 57,
+      "order": 21,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.amazon-prime.series",
@@ -245,7 +245,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.apple-tv.movie",
       "type": "movie",
-      "order": 58,
+      "order": 22,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.apple-tv.movie",
@@ -256,7 +256,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.apple-tv.series",
       "type": "series",
-      "order": 59,
+      "order": 23,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.apple-tv.series",
@@ -267,7 +267,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.crunchyroll.movie",
       "type": "movie",
-      "order": 60,
+      "order": 24,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.crunchyroll.movie",
@@ -278,7 +278,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.crunchyroll.series",
       "type": "series",
-      "order": 61,
+      "order": 25,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.crunchyroll.series",
@@ -289,7 +289,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.disney.movie",
       "type": "movie",
-      "order": 62,
+      "order": 26,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.disney.movie",
@@ -300,7 +300,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.disney.series",
       "type": "series",
-      "order": 63,
+      "order": 27,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.disney.series",
@@ -311,7 +311,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.hbo-max.movie",
       "type": "movie",
-      "order": 64,
+      "order": 28,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.hbo-max.movie",
@@ -322,7 +322,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.hbo-max.series",
       "type": "series",
-      "order": 65,
+      "order": 29,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.hbo-max.series",
@@ -333,7 +333,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.hulu.movie",
       "type": "movie",
-      "order": 66,
+      "order": 30,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.hulu.movie",
@@ -344,7 +344,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.hulu.series",
       "type": "series",
-      "order": 67,
+      "order": 31,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.hulu.series",
@@ -355,7 +355,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.netflix.movie",
       "type": "movie",
-      "order": 68,
+      "order": 32,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.netflix.movie",
@@ -366,7 +366,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.netflix.series",
       "type": "series",
-      "order": 69,
+      "order": 33,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.netflix.series",
@@ -377,7 +377,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.paramount-plus.movie",
       "type": "movie",
-      "order": 70,
+      "order": 34,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.paramount-plus.movie",
@@ -388,7 +388,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.paramount-plus.series",
       "type": "series",
-      "order": 71,
+      "order": 35,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.paramount-plus.series",
@@ -399,7 +399,7 @@
     {
       "key": "__TOPX_ADDON_ID__:movie:tx.us.peacock.movie",
       "type": "movie",
-      "order": 72,
+      "order": 36,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.peacock.movie",
@@ -410,7 +410,7 @@
     {
       "key": "__TOPX_ADDON_ID__:series:tx.us.peacock.series",
       "type": "series",
-      "order": 73,
+      "order": 37,
       "enabled": false,
       "addon_id": "__TOPX_ADDON_ID__",
       "catalog_id": "tx.us.peacock.series",
@@ -421,23 +421,12 @@
     {
       "key": "collection_community-collection-19",
       "type": "",
-      "order": 76,
+      "order": 38,
       "enabled": false,
       "addon_id": "",
       "catalog_id": "",
       "custom_title": "",
       "collection_id": "community-collection-19",
-      "is_collection": true
-    },
-    {
-      "key": "collection_community-collection-20",
-      "type": "",
-      "order": 110,
-      "enabled": true,
-      "addon_id": "",
-      "catalog_id": "",
-      "custom_title": "More Browsing",
-      "collection_id": "community-collection-20",
       "is_collection": true
     }
   ]

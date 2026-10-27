@@ -1,4 +1,4 @@
-name: Validate community package
+name: Validate simple configuration
 on: [push, pull_request]
 permissions:
   contents: read
@@ -12,8 +12,3 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run validate
-      - run: npm run build && npm test && npm run validate
-        working-directory: experimental/service-hub
-      - run: node --test test/*.test.mjs
-        working-directory: addons/service-shelves
-      - run: bash -n addons/service-shelves/install-oracle.sh

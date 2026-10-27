@@ -1,89 +1,91 @@
-# Nuvio Community Config
+# Nuvio Simple Config — no VM
 
-Reusable US collections, streaming-service folders, numbered landscape Top 10 charts, and a TV appearance preset. Includes a self-hosted **Service Shelves addon** that caches catalog metadata on an Oracle VM, plus an older experimental Worker backend.
+**[Download this branch as a ZIP](https://github.com/AMurtadaa/nuvio-community-config/archive/refs/heads/simple-config.zip)** · **[Step-by-step setup guide](docs/setup-guide.md)**
 
-This is a community setup, not an official Nuvio release. It does not provide movies, playback streams, subscriptions, or Real-Debrid access.
+This branch keeps each streaming service's browsing categories inside its own folder. **More Browsing is removed.** You use your existing Nuvio app and native catalog integrations. There is no server to set up, no hosted addon to install, and no laptop that must stay on.
 
-## Choose what to use
+This is a community configuration, not an official Nuvio release. It does not provide video streams, subscriptions, debrid access or API credentials.
 
-| Package | What you get | Status |
-| --- | --- | --- |
-| **Hosted Service Shelves** | 22 services, 709 cached regular queries, categories restored inside their service folders, HTTPS on your own VM | Initial Oracle deployment verified; physical client testing still required. **[Full setup guide](docs/oracle-service-shelves-setup.md)** |
-| Collection templates | 20 collections, 918 folders, 3,612 catalog/query sources; 22 streaming-service tiles | Derived from a saved account configuration; requires your own addons and client verification |
-| TopX recipe | 2 general US charts and 18 service charts, all landscape | Recipe for your own TopX configuration; no shared account URL |
-| TV appearance | Modern layout, hero enabled, backdrop expansion, Bttr IMDb poster pattern | Saved-state verified; physical Fire TV/LG rendering still needs testing |
-| Optional Home template | Movies Top 10 first, Series Top 10 second, Streaming Services third | Explicit opt-in because it replaces Home row preferences |
-| Experimental service hub | Catalog Worker with 22 services, 723 category definitions, caching and bounded requests | Prototype; not deployed or a finished native TV interface |
+## The quickest way to use it
 
-## Start here
+1. **Export a backup** of your target profile in [Kaptain Studio](https://kaptain.stream/studio). Use a spare profile first; the import replaces the profile's collection list.
+2. Download the ZIP using the link above and **extract all files**.
+3. Double-click **`setup.html`**. It opens a local setup tool in your browser. No Node installation or terminal is needed.
+4. In the tool, choose **`config/collections.template.json`** from the extracted folder. Enter your numeric `profileId`, found in your own Studio backup opened locally in a text editor. Do not give the setup tool your private backup.
+5. Choose optional extras. Leave TopX blank if you do not use it. Home ordering and TV appearance are separate opt-ins.
+6. Click **Check my choices → Download Studio import**.
+7. In Studio, select that profile → **Backups & Updates → Import backup file**. Select the downloaded file, then click **Restore** on the imported item.
+8. Fully close and reopen Nuvio, select the profile, and test a service folder, details and playback.
 
-**For the current hosted setup, use the [complete Oracle Service Shelves guide](docs/oracle-service-shelves-setup.md).** It explains every step: VM creation, costs/eligibility, keys, SSH, free hostname, HTTPS/firewalls, private TMDB setup, preset generation, Nuvio installation, each device's test, and recovery. You host your own copy; no shared endpoint or credential is supplied.
+The setup tool reads the public template locally and downloads a file. It does not log in, upload your data, install addons, apply the import or ask for credentials. The generated file must be restored manually. See the [full guide](docs/setup-guide.md) if any step is unfamiliar.
 
-The hosted setup uses `scripts/generate-shelves.mjs` and restores the categories to their original folders. Its generated collection preset has **19 collections, 786 folders and all 3,612 sources**, with no More Browsing collection. It does not change playback or appearance settings. See [the addon README](addons/service-shelves/README.md) and [troubleshooting](docs/service-shelves-troubleshooting.md).
+## What you get
 
-### Legacy configuration-only setup
+| Item | Included |
+| --- | --- |
+| Streaming services | 22 folders, with their original categories back inside them |
+| More Browsing | Removed; all 897 overflow source positions returned to their owners |
+| Full source template | 19 collections, 786 folders, 3,612 native/direct sources |
+| Service source definitions | 741 total, including optional service charts |
+| Service artwork | Existing static covers and GIF URLs/flags retained |
+| Top 10 charts | Optional; your own TopX addon is required |
+| Global BetterPosters Top 25 folders | Optional; your own compatible BetterPosters addon is required |
+| Home ordering | Optional; replaces Home preferences if selected |
+| TV appearance | Optional; changes only the supplied TV appearance settings group |
+| Playback, credentials, watch history | Not included or configured |
 
-The following original method does not need a VM, but keeps overflow folders under **More Browsing**. Do not use its generator if you want the hosted service-folder layout.
+If you omit optional chart/BetterPosters sources, the tool deliberately removes those references and any folders left empty by that choice. It reports the exact resulting counts. All 22 service folders remain. With both optional providers included, all 3,612 source positions are retained; with neither, there are 3,590.
 
-1. **Export a backup of your own Nuvio profile** in [Kaptain Studio](https://kaptain.stream/studio). Test in a spare profile first. Imports replace the collections they contain; they do not merge arbitrary personal folders.
-2. Configure your own addon at [TopX](https://topx.stremio-italia.eu/). The exact catalog IDs and display options are in [the US landscape recipe](config/topx-us-landscape.json). Set all 20 charts to **landscape**, classic style, black canvas, with the recipe's remaining options. These are configuration values; this repository does not assume the configurator supports uploading this JSON.
-3. Install that TopX addon in your test profile. Open its HTTPS manifest JSON and copy the top-level `id`, such as `com.topx.YOUR_ID`. Keep the same catalog IDs from the recipe: the collection references depend on them.
-4. Set up your own [BetterPosters](https://btttr.cc/configure) catalog addon if you want the two global Top 25 folders. Its manifest ID must be `community.betterposters` for those references. The Bttr poster URL itself selects IMDb with `rs=IM`; it needs no RPDB key. If the provider changes its manifest ID, update those two source references before importing.
-5. Download this repository (Code → Download ZIP) and extract it, or clone it. With Node.js 20+ installed, open a terminal in its root. No npm dependency installation is required:
+The services are Netflix, Apple TV+, Hulu, Prime Video, AMC+, Crave, Criterion, Crunchyroll, Curiosity Stream, Discovery+, Disney+, Hayu, HBO Max, Magellan, MGM+, Mubi, Paramount+, Peacock, Pluto TV, Shudder, Starz and Tubi TV. The saved watch-region filters are **US**; this package does not automatically adapt service availability to other countries.
 
-   ```sh
-   node scripts/generate.mjs --topx-addon-id com.topx.YOUR_ID --profile-id 1
-   ```
+## Understand the trade-off
 
-   Replace both example values. `profile-id` is the positive numeric `profileId` in **your own Studio backup**. Do not upload that backup to GitHub. The script creates `generated/collections.json` and `generated/studio-import.json`; it refuses to overwrite existing files.
-6. For collections only, import `generated/collections.json` through your normal Nuvio collection import. For collections **plus the TV appearance preset**, import `generated/studio-import.json` in Studio → Backups & Updates, then Restore the imported item. That file contains collections and a small TV appearance settings group; no addons, playback settings, credentials or watch history are included.
-7. In Home controls, place the general movie chart first, series chart second, and Streaming Services third. Keep collection pins off. Hide the duplicate “Top 10 in the US - JustWatch” collection and standalone service-chart rows on Home; those sources remain available inside the service folders. Alternatively, regenerate into a fresh output folder with `--include-home` to explicitly include the supplied Home arrangement. **That option replaces Home preferences**, including any unrelated Home row choices.
-8. Fully close and reopen Nuvio on every device and select the target profile. Verify the hero, GIF-on-focus behavior, rank artwork, service navigation, title details and playback before using your main profile.
+This branch removes server setup, but it also removes the hosted cache. Nuvio fetches categories using its existing TMDB, Trakt and addon integrations. A client may fetch many categories when you open a service, so restoring them all can increase initial loading on a low-powered TV.
 
-Each person supplies their own TMDB/Trakt integration where their client requires it, metadata addons and playback addons. Existing Real-Debrid setup remains separate. The repository contains no Real-Debrid keys and the experimental addon does not accept them.
+This configuration does **not** add native lazy loading, a shared cache, eight-item response limits, continuous horizontal fetching or new remote-focus behavior. Shelf length, paging, GIF animation, hero banners and scroll restoration depend on the client/version and device settings. No universal smoothness claim is made.
 
-## What the design preserves
+For the optional cached VM setup, use the separate [main branch](https://github.com/AMurtadaa/nuvio-community-config/tree/main). Nothing in this simple branch requires that deployment, its endpoint or its code. Publishing this branch does not change an existing hosted installation.
 
-- Streaming-service tiles retain static covers and GIF URLs, with GIFs enabled for all 22 service tiles. Clients decide whether/how to animate on focus; this cannot force animation support on every platform.
-- Bttr stays available on Home and other supported screens. Landscape chart artwork avoids the portrait-only global poster replacement observed on Windows. Client implementations and versions differ; this is a workaround, not a universal per-row override API.
-- Top 10 sources sit first within the nine services with supported US charts: Netflix, Prime Video, Apple TV+, Disney+, HBO Max, Hulu, Paramount+, Peacock and Crunchyroll. The other 13 services retain browsing categories without invented rankings.
-- General charts use JustWatch via TopX; service charts use the FlixPatrol-backed TopX catalog IDs. These are provider charts, not audited viewership figures. Poster badges from a different provider may describe a different ranking. Freshness is controlled by the upstream provider.
-- All source definitions are retained. The legacy configuration-only template moves 897 definitions into 132 **More Browsing** folders. The hosted Service Shelves generator restores all 897 to their owners, caching the 709 regular service queries. Clients can still request every category's first batch; the addon reduces response sizes and reuses results, rather than changing native fetching behavior.
-- Most non-service GIF flags remain disabled from the browsing-performance pass. The 22 service GIF flags and Modern TV appearance were deliberately restored; enabling all visual features everywhere is not presented as a performance fix.
+## What's in the ZIP?
 
-## Performance and platform limits
+| Path | Purpose |
+| --- | --- |
+| `setup.html` | Local, browser-based setup tool; start here |
+| `scripts/setup.js`, `scripts/preset.js`, `scripts/defaults.js` | Tool logic and public defaults |
+| `config/collections.template.json` | Restored source template; choose this in the setup tool, do not import it directly with unresolved placeholders |
+| `config/home.template.json` | Optional Home arrangement |
+| `config/tv-appearance.json` | Optional TV appearance preset |
+| `config/topx-us-landscape.json` | Recipe for configuring your own TopX charts |
+| `docs/setup-guide.md` | Detailed setup, testing and recovery instructions |
+| `docs/attribution.md` | Providers, artwork references and rights |
+| `scripts/generate.mjs` | Optional command-line generator for Node users |
+| `test/`, `.github/workflows/validate.yml` | Automated checks and GitHub CI |
 
-Cover URLs request bounded-size WebP artwork through an external image proxy. Existing providers retain control of caching, availability and image quality. Source count reductions at entry are configuration changes; they cannot implement native list virtualization, focus restoration, image decoding limits, scroll-to-top behavior or a shared responsive UI engine.
+## Optional command-line method
 
-Desktop, Android/Fire TV and webOS clients use different implementations and settings mappings. Use the [platform checklist](docs/platform-checklist.md) to test them independently. No universal smoothness claim is made. In particular, there are **no physical TV memory, frame-time or playback-start benchmarks** in this release.
+Node.js 22+ is needed only for this method or development. No npm dependency installation is required. From the extracted repository root:
 
-## Developers
+```sh
+node scripts/generate.mjs --profile-id 1
+```
+
+Replace `1` with your own profile ID. This basic command omits optional TopX and BetterPosters sources and leaves Home/appearance unchanged. To include everything, after installing your own referenced addons:
+
+```sh
+node scripts/generate.mjs --profile-id 1 --topx-addon-id com.topx.YOUR_ID --include-betterposters --include-home --include-tv-appearance
+```
+
+The flags that change Home and appearance are explicit. Files are saved under `generated/`; the command refuses overwrites. Use `--out generated/another-attempt` for a fresh output folder.
+
+## Testing and recovery
+
+Configuration tests verify source retention, direct queries, optional providers, Home ordering, GIF flags and appearance opt-in. Physical TV/phone performance still needs testing. Developers can run:
 
 ```sh
 npm test
 npm run validate
-cd experimental/service-hub
-npm run build
-npm test
-npm run validate
-node scripts/dev.mjs
 ```
 
-Read [the prototype README](experimental/service-hub/README.md) before hosting or installing it. The preview runs on `127.0.0.1:8787`. It is separate from the collection templates and makes no changes to a Nuvio account.
+To undo an import, restore your own pre-import Studio backup, then fully reopen Nuvio. Keep backups and credentials out of GitHub. Full instructions and common problems are in [the guide](docs/setup-guide.md).
 
-For the current Node addon, also run:
-
-```sh
-cd addons/service-shelves
-node --test test/*.test.mjs
-```
-
-Its private setup uses port 8790 through SSH. The older localhost Netflix Windows test is not the public package and is not required for hosted use.
-
-## Privacy, rollback and attribution
-
-Public files are generated from an explicit collection/appearance allowlist. They contain public artwork references, catalog IDs and filters, with newly assigned generic collection/folder/source IDs. They exclude original account exports, addon installation URLs, personal Home addon references, account/profile names, tracker/watch history, API keys and hosting account metadata. Generated presets are ignored by Git.
-
-To undo an import, restore your own pre-import Studio backup and reopen Nuvio. An addon backend cannot undo or modify a native client build.
-
-Code and original documentation are MIT licensed. Third-party artwork, trademarks, catalog data, provider APIs and Nuvio/Kaptain/TopX/Bttr software remain subject to their owners' rights and terms; the code license does not relicense them. This project references remote artwork and does not redistribute image binaries. See [attribution](docs/attribution.md).
+Original code/documentation are MIT licensed. Third-party artwork, trademarks, APIs, lists and software retain their own rights and terms. See [attribution](docs/attribution.md).

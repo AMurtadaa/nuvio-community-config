@@ -1,4 +1,0 @@
-private/
-secrets/
-.env
-*.log
