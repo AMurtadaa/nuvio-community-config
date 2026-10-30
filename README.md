@@ -17,6 +17,8 @@ This is a community setup, not an official Nuvio release. It does not provide mo
 
 ## Start here
 
+**Setting this up again? Start with [easy setup and private recovery](docs/easy-recovery.md).** Open `recover.html` from the extracted ZIP for a safe layout-only import, or `recovery/portable.html` to unlock your own encrypted private backup. Credential-bearing addon links are restored separately through Nuvio's addon controls, avoiding redacted-token imports. The public repository contains no personal vault or credentials.
+
 **For the current hosted setup, use the [complete Oracle Service Shelves guide](docs/oracle-service-shelves-setup.md).** It explains every step: VM creation, costs/eligibility, keys, SSH, free hostname, HTTPS/firewalls, private TMDB setup, preset generation, Nuvio installation, each device's test, and recovery. You host your own copy; no shared endpoint or credential is supplied.
 
 The hosted setup uses `scripts/generate-shelves.mjs` and restores the categories to their original folders. Its generated collection preset has **19 collections, 786 folders and all 3,612 sources**, with no More Browsing collection. It does not change playback or appearance settings. See [the addon README](addons/service-shelves/README.md) and [troubleshooting](docs/service-shelves-troubleshooting.md).

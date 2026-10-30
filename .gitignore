@@ -4,6 +4,9 @@ node_modules/
 !.env.example
 generated/
 private/
+*.vault
+*.encrypted.json
+open-helper.url
 *.log
 .DS_Store
 Thumbs.db
